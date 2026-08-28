@@ -1,0 +1,8 @@
+{
+  "_comment": "OPTIONAL. Extra Juliet CWEs accepted as a match for a cppcheck CWE (parent/child or sibling in the MITRE hierarchy). Use with: python3 build_dataset.py --cwe-map cwe_map.json . Default run = exact CWE equality only.",
+  "788": ["121", "122", "126"],
+  "786": ["124", "127"],
+  "476": ["690"],
+  "664": ["672"],
+  "190": ["191"]
+}

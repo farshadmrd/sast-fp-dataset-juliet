@@ -1,0 +1,49 @@
+# ---- NIST Juliet test suite (download separately: https://samate.nist.gov/SARD/test-suites/112) ----
+2017-10-01-juliet-test-suite-for-c-cplusplus-v1-3/
+2017-10-01-juliet-test-suite-for-c-cplusplus-v1-3.zip
+
+# ---- Generated dataset / analysis outputs: only the .gz copies are committed (uncompressed ~2 GB) ----
+dataset.sqlite
+dataset.sqlite-journal
+dataset.sqlite-wal
+dataset.sqlite-shm
+dataset.csv
+dataset.jsonl
+*.sqlite
+*.db
+*.parquet
+
+# cppcheck scan results (results.xml.gz is committed)
+results.xml
+*.cppcheck
+cppcheck-build-dir/
+
+# build / run logs
+*.log
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.coverage
+htmlcov/
+
+# ---- Editors / OS ----
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
