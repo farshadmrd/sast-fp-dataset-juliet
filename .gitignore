@@ -2,19 +2,19 @@
 2017-10-01-juliet-test-suite-for-c-cplusplus-v1-3/
 2017-10-01-juliet-test-suite-for-c-cplusplus-v1-3.zip
 
-# ---- Generated dataset / analysis outputs: only the .gz copies are committed (uncompressed ~2 GB) ----
-dataset.sqlite
-dataset.sqlite-journal
-dataset.sqlite-wal
-dataset.sqlite-shm
-dataset.csv
-dataset.jsonl
+# ---- Generated dataset / analysis outputs (cppcheck/): only the .gz copies are committed (uncompressed ~2 GB) ----
+cppcheck/dataset.sqlite
+cppcheck/dataset.sqlite-journal
+cppcheck/dataset.sqlite-wal
+cppcheck/dataset.sqlite-shm
+cppcheck/dataset.csv
+cppcheck/dataset.jsonl
 *.sqlite
 *.db
 *.parquet
 
 # cppcheck scan results (results.xml.gz is committed)
-results.xml
+cppcheck/results.xml
 *.cppcheck
 cppcheck-build-dir/
 

@@ -37,7 +37,22 @@ All the intermediate facts (which region the warning is in, whether the CWE
 matched, how far it is from the documented flaw line, ...) are stored as extra
 columns, so you can re-label under a different policy without re-running cppcheck.
 
-## What's in the repo
+## Layout
+
+```
+.
+├── 2017-10-01-juliet-test-suite-for-c-cplusplus-v1-3/   # Juliet suite (not committed)
+├── .gitignore
+└── cppcheck/            # everything for the cppcheck experiment
+    ├── README.md        # this file
+    ├── build_dataset.py
+    ├── cwe_map.json
+    ├── results.xml.gz
+    ├── dataset.csv.gz
+    └── dataset.sqlite.gz
+```
+
+## What's in `cppcheck/`
 
 | File | Purpose |
 |------|---------|
@@ -67,22 +82,24 @@ download it from NIST if you want to rebuild from scratch.
 
 ## Reproducing the dataset
 
-1. **Get Juliet** and unzip it next to the script:
+1. **Get Juliet** and unzip it in the repository root:
 
    ```bash
    # download from https://samate.nist.gov/SARD/test-suites/112
    unzip 2017-10-01-juliet-test-suite-for-c-cplusplus-v1-3.zip
+   cd cppcheck
    ```
 
 2. **Run cppcheck** over the suite and keep the XML output:
 
    ```bash
    cppcheck --enable=all --xml --xml-version=2 \
-       2017-10-01-juliet-test-suite-for-c-cplusplus-v1-3/C/testcases \
+       ../2017-10-01-juliet-test-suite-for-c-cplusplus-v1-3/C/testcases \
        2> results.xml
    ```
 
-3. **Build the dataset:**
+3. **Build the dataset** (from inside `cppcheck/`; the Juliet folder in the
+   parent directory is found automatically, or pass `--juliet ../<folder>`):
 
    ```bash
    python3 build_dataset.py --csv dataset.csv

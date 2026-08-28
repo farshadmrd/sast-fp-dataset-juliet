@@ -23,7 +23,7 @@ extra columns (region, cwe_match, on_flaw_line, flaw_line_dist, ...).
 
 Only the Python standard library is required.
 
-Usage (defaults are auto-detected from the current directory):
+Usage (run from cppcheck/; the Juliet suite is auto-detected in ./ or ../):
     python3 build_dataset.py
     python3 build_dataset.py --results results.xml --juliet <dir containing C/> \
         --out dataset.sqlite --csv dataset.csv --jsonl dataset.jsonl
@@ -728,7 +728,11 @@ def find_c_dir(juliet: Optional[str]) -> str:
     cands = []
     if juliet:
         cands += [juliet, os.path.join(juliet, 'C')]
-    cands += ['C', '.'] + sorted(glob.glob('*juliet*/C')) + sorted(glob.glob('*juliet*'))
+    # search the current dir and its parent (the repo root, where the Juliet suite lives)
+    for base in ('.', '..'):
+        cands += [os.path.join(base, 'C'), base]
+        cands += sorted(glob.glob(os.path.join(base, '*juliet*', 'C')))
+        cands += sorted(glob.glob(os.path.join(base, '*juliet*')))
     for c in cands:
         if os.path.isfile(os.path.join(c, 'manifest.xml')) and os.path.isdir(os.path.join(c, 'testcases')):
             return os.path.abspath(c)
