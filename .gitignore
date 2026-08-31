@@ -47,3 +47,9 @@ htmlcov/
 *~
 .DS_Store
 Thumbs.db
+
+# ---- CodeQL experiment (codeql/): only the .gz copies are committed ----
+codeql/codeql.sarif
+codeql/dataset.sqlite
+codeql/dataset.csv
+codeql/dataset.jsonl
