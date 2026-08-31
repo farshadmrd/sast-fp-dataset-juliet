@@ -53,3 +53,7 @@ codeql/codeql.sarif
 codeql/dataset.sqlite
 codeql/dataset.csv
 codeql/dataset.jsonl
+
+# ---- fine-tuning splits: only the .gz copies are committed ----
+cppcheck/splits/*.jsonl
+codeql/splits/*.jsonl

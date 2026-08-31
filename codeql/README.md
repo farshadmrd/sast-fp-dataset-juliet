@@ -33,6 +33,16 @@ The Juliet suite is auto-detected in the repository root (or pass
 instead of `--results`. One extra column: `report_cwes` — a CodeQL rule can
 carry several CWEs (e.g. `120;787;805`); `cwe_match` checks all of them.
 
+## Fine-tuning splits
+
+`splits/{train,val,test}.jsonl.gz` — same masking + per-test-case split as the
+cppcheck ones (see [../cppcheck/README.md](../cppcheck/README.md) and
+`../make_splits.py`). Rebuild with:
+
+```bash
+python3 ../make_splits.py --dataset dataset.sqlite --tool codeql --outdir splits
+```
+
 ## Numbers from the last full run
 
 - 13,454 findings → 13,454 rows (every finding resolved to a test case)

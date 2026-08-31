@@ -148,6 +148,27 @@ Some checkers are almost always right (`mismatchAllocDealloc`,
 `autovarInvalidDeallocation`), some are almost always noise
 (`cstyleCast`, `variableScope`, `shadowVariable`).
 
+## Fine-tuning splits
+
+`splits/{train,val,test}.jsonl.gz` (built by `../make_splits.py`) are the
+files to fine-tune on — **not** the raw dataset. They differ from it in three
+ways that matter for a fair experiment:
+
+- comments are stripped and every `bad`/`good`/`OMITBAD` identifier is masked
+  to the *same* neutral token, so the model cannot read the label off the code;
+- Juliet file/function names (which embed the CWE) are replaced with anonymous
+  `tc_xxxxxxxx` hashes;
+- the 80/10/10 split is by **test case**, so the ~18 near-identical variants of
+  each flaw never straddle train and test.
+
+Each line has `input` (what the model may see), `label`, and `meta`
+(unmasked ground truth for analysis only — never feed `meta` to the model).
+Rebuild with:
+
+```bash
+python3 ../make_splits.py --dataset dataset.sqlite --tool cppcheck --outdir splits
+```
+
 ## License / credits
 
 The Juliet Test Suite is public domain, published by NIST.
