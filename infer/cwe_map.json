@@ -1,0 +1,7 @@
+{
+  "_comment": "OPTIONAL. Extra Juliet CWEs accepted as a match for a mapped Infer CWE (parent/child or sibling in the MITRE hierarchy). Use with: python3 build_dataset.py --cwe-map cwe_map.json . Default run = exact CWE equality only.",
+  "416": ["415"],
+  "476": ["690"],
+  "401": ["761", "762", "772", "775"],
+  "457": ["665", "908"]
+}

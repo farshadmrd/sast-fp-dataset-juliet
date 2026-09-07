@@ -60,3 +60,7 @@ codeql/splits/*.jsonl
 
 # ---- Infer experiment (infer/): only the .gz copy is committed ----
 infer/report.json
+infer/dataset.sqlite
+infer/dataset.csv
+infer/dataset.jsonl
+infer/splits/*.jsonl
