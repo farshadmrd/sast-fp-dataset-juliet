@@ -57,3 +57,6 @@ codeql/dataset.jsonl
 # ---- fine-tuning splits: only the .gz copies are committed ----
 cppcheck/splits/*.jsonl
 codeql/splits/*.jsonl
+
+# ---- Infer experiment (infer/): only the .gz copy is committed ----
+infer/report.json
